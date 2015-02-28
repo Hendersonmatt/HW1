@@ -1,2 +1,45 @@
 #include <stdio.h>
-//can i edit?
+// yep
+#include <stdlib.h>
+
+int main()
+{
+	char *str = "Hello, World!", in;
+	int i;
+	long c, delay = 0;
+
+	in = 'f';
+	while (in != 'x')
+	{
+		if (in == 's' || in == 'f')
+		{
+			for (i = 0; i<13; i++)
+			{
+				// Print a character
+				printf("%c", str[i]);
+				// The delay
+				for (c = 0; c<delay; c++);
+				//Flush the output buffer otherwise the delays will sum up...
+				fflush(stdout);
+			}
+			printf("\nEnter 's' for slow, 'f' for fast, or 'x' to exit: ");
+		}
+
+		in = getchar();
+		fpurge(stdin);
+		if (in == 'f')
+		{
+			if (delay>0)
+			{
+				delay -= 5000000;
+			}
+		}
+		else if (in == 's')
+		{
+			delay += 5000000;
+		}
+		else if (in != 'x')
+			printf("\nEnter 's' for slow, 'f' for fast, or 'x' to exit: ");
+	}
+	return EXIT_SUCCESS;
+}
