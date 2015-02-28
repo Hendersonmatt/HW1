@@ -20,11 +20,22 @@ struct names
 
 int main()
 {
-	struct names file[19];
+	struct names files[19];
 	int i; //counter
-
+	char ch;
 	//reading
 	FILE *file;
 	file = fopen("names.txt", "r");
 
+	if (file == 0)
+	{
+		fprintf(stderr, "failed to open names.txt\n");
+		exit(1);
+	}
+	else printf("File loaded.\n\n");
+	while ((ch = fgetc(file)) != EOF)
+		printf("%c", ch);
+
+	fclose(file);
+	return 0;
 }
