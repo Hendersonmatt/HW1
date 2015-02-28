@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+/* structure for a node */
+struct node
+{
+	int data;
+	struct node *next;
+};
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct names
+{
+	char lastname[15];
+	char firstname[15];
+	int age;
+};
+
+int main()
+{
+	struct names file[19];
+	int i; //counter
+
+	//reading
+	FILE *file;
+	file = fopen("names.txt", "r");
+
+}
